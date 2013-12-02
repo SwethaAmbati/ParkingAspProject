@@ -1,11 +1,12 @@
-﻿using System;
+﻿using SJSUParking.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace SJSUParking.Models.DataAccess
+namespace SJSUParking.Controllers.DataAccess
 {
     public class DAL
     {
@@ -18,7 +19,7 @@ namespace SJSUParking.Models.DataAccess
             SqlCommand cmd = new SqlCommand(query, conn);
             conn.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
-            authenticated = sdr.HasRows;
+            authenticated = sdr.HasRows;// if the table has rows with the required data then the login is authenticated
             conn.Close();
             return (authenticated);
         }

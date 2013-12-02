@@ -1,5 +1,6 @@
-﻿using SJSUParking.Models;
-using SJSUParking.Models.DataAccess;
+﻿using SJSUParking.Controllers;
+using SJSUParking.Controllers.DataAccess;
+using SJSUParking.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

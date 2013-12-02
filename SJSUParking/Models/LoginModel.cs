@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
-namespace SJSUParking.Controllers
+namespace SJSUParking.Models
 {
     public class LoginModel
     {

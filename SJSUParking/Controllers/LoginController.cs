@@ -1,4 +1,5 @@
-﻿using SJSUParking.Models.DataAccess;
+﻿using SJSUParking.Controllers.DataAccess;
+using SJSUParking.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,12 +27,12 @@ namespace SJSUParking.Controllers
                 //if (loginModel.Username == "ked" && loginModel.Password == "admin123") // DB Call for UserName and Password
                 if (DAL.UserIsValid(loginModel.SJSUId, loginModel.Password))
                 {
-                    FormsAuthentication.SetAuthCookie(loginModel.SJSUId, false);
+                    FormsAuthentication.SetAuthCookie(loginModel.SJSUId, false);// If it is set to false, the cookie is destroyed after user closes the browser
                     return RedirectToAction("index", "home");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Invalid username or password");
+                    ModelState.AddModelError("", "Invalid username or password");//If authentcation fails
                 }
               
             }

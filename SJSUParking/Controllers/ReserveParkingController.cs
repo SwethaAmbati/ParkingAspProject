@@ -1,4 +1,5 @@
-﻿using SJSUParking.Models;
+﻿using SJSUParking.Controllers;
+using SJSUParking.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,11 @@ namespace SJSUParking.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+               
+            }
+            return View(new ReservedParkingModel());
         }
 
         [HttpPost]
