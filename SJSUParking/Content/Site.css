@@ -3,10 +3,7 @@
     font-size: .85em;
     font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
     color: #232323;
-    text-align:center;
-    background-image:url(../Content/Images/background.png);
-    background-repeat:repeat-y;
-    background-attachment:fixed; 
+    background-color: #fff;
 }
 
 header,
@@ -14,46 +11,6 @@ footer,
 nav,
 section {
     display: block;
-}
-.wrapper {
-    width:auto;
-    margin: 0 auto;
-    text-align:left;
-}
-.header-image {
-    height: 260px;
-    border: 3px solid #000;
-    background-image: url("../Content/Images/header_image.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: auto;
-}
-.footer-image {
-    clear: both;
-    width: auto;
-    height: 160px;
-    margin-top: auto;
-    background-image: url("../Content/Images/footer_image.jpg");    
-    background-size: cover;
-}
-.top {
-    width: 100%;
-    
-}
-.left {
-    width: 15%;
-    height: 100%;
-    float:left;        
-}
-.main {
-    float: left;
-    height: 100%;
-    width: 85%;
- }
-.content{
-    height: 700px;
-    width: auto;
-  
 }
 
 /* Styles for basic forms

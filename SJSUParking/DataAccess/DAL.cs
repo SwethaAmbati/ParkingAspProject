@@ -1,12 +1,11 @@
-﻿using SJSUParking.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace SJSUParking.Controllers.DataAccess
+namespace SJSUParking.Models.DataAccess
 {
     public class DAL
     {
@@ -19,26 +18,9 @@ namespace SJSUParking.Controllers.DataAccess
             SqlCommand cmd = new SqlCommand(query, conn);
             conn.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
-            authenticated = sdr.HasRows;// if the table has rows with the required data then the login is authenticated
+            authenticated = sdr.HasRows;
             conn.Close();
             return (authenticated);
-        }
-        public static UserModel UserProfile(string username)
-        {
-            string query = string.Format("Select * FROM Users Where SJSUId = '{0}' ", username);
-            SqlCommand cmd = new SqlCommand(query, conn);
-            conn.Open();
-            SqlDataReader sdr = cmd.ExecuteReader();
-            UserModel userInfo = new UserModel();
-            sdr.Read();
-            userInfo.SJSUId = sdr.GetString(0);
-            userInfo.Email = sdr.GetString(2);
-            userInfo.FirstName = sdr.GetString(3);
-            userInfo.LastName = sdr.GetString(4);
-            userInfo.Phone = sdr.GetString(5);
-            userInfo.DrivingLicNo = sdr.GetString(6);
-            conn.Close();
-            return (userInfo);
         }
 
         public static void CreateNewUser(UserModel usermodel)
@@ -49,6 +31,18 @@ namespace SJSUParking.Controllers.DataAccess
             conn.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
             conn.Close();
+        }
+
+        public static bool ValidEmail(string email)
+        {
+            bool authenticated = false;
+            string query = string.Format("Select * FROM Users Where email = '{0}'",email);
+            SqlCommand cmd = new SqlCommand(query, conn);
+            conn.Open();
+            SqlDataReader sdr = cmd.ExecuteReader();
+            authenticated = sdr.HasRows;
+            conn.Close();
+            return (authenticated);
         }
     }
 }

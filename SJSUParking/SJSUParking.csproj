@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BuyPermitController.cs" />
+    <Compile Include="Controllers\ForgotPasswordController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LogoutController.cs" />
@@ -103,12 +104,14 @@
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\ReserveParkingController.cs" />
     <Compile Include="DataAccess\DAL.cs" />
+    <Compile Include="Models\ForgotPasswordModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\PermitModel.cs" />
     <Compile Include="Models\ReservedParkingModel.cs" />
+    <Compile Include="Models\SendEmail.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -269,20 +272,17 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Logout\Index.cshtml" />
     <Content Include="Views\Shared\_AnonymousLayout.cshtml" />
     <Content Include="Views\ReserveParking\Index.cshtml" />
     <Content Include="Views\BuyPermit\Index.cshtml" />
     <Content Include="Views\Registration\Index.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Login\Index.cshtml">
-      <SubType>Code</SubType>
-    </Content>
+    <Content Include="Views\ForgotPassword\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
@@ -302,7 +302,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>47721</DevelopmentServerPort>
+          <DevelopmentServerPort>1400</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:55920/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
