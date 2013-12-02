@@ -23,6 +23,23 @@ namespace SJSUParking.Controllers.DataAccess
             conn.Close();
             return (authenticated);
         }
+        public static UserModel UserProfile(string username)
+        {
+            string query = string.Format("Select * FROM Users Where SJSUId = '{0}' ", username);
+            SqlCommand cmd = new SqlCommand(query, conn);
+            conn.Open();
+            SqlDataReader sdr = cmd.ExecuteReader();
+            UserModel userInfo = new UserModel();
+            sdr.Read();
+            userInfo.SJSUId = sdr.GetString(0);
+            userInfo.Email = sdr.GetString(2);
+            userInfo.FirstName = sdr.GetString(3);
+            userInfo.LastName = sdr.GetString(4);
+            userInfo.Phone = sdr.GetString(5);
+            userInfo.DrivingLicNo = sdr.GetString(6);
+            conn.Close();
+            return (userInfo);
+        }
 
         public static void CreateNewUser(UserModel usermodel)
         {
