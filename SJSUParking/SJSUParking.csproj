@@ -103,6 +103,7 @@
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\ReserveParkingController.cs" />
+    <Compile Include="Controllers\ResetPasswordController.cs" />
     <Compile Include="DataAccess\DAL.cs" />
     <Compile Include="Models\ForgotPasswordModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -111,6 +112,7 @@
     </Compile>
     <Compile Include="Models\PermitModel.cs" />
     <Compile Include="Models\ReservedParkingModel.cs" />
+    <Compile Include="Models\ResetPasswordModel.cs" />
     <Compile Include="Models\SendEmail.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -281,6 +283,7 @@
     <Content Include="Views\BuyPermit\Index.cshtml" />
     <Content Include="Views\Registration\Index.cshtml" />
     <Content Include="Views\ForgotPassword\Index.cshtml" />
+    <Content Include="Views\ResetPassword\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

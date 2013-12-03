@@ -1,8 +1,8 @@
 ﻿using SJSUParking.Models.DataAccess;
 using System;
+using System.Web;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using System.Diagnostics;
@@ -15,27 +15,28 @@ namespace SJSUParking.Controllers
         //
         // GET: /ForgotPassword/
 
-       // public ActionResult Index()
-        //{
-          //  return View();
-        //}
-
-        public ActionResult index(string email)
+        public ActionResult Index()
         {
-            if (email != null)
-            {
-                MembershipUser currentUser = Membership.GetUser(email);
-                
-                    ViewBag.newPass = currentUser.ResetPassword();
-                    ViewBag.Email = email;
-                    return View("Login");
-                
-            }
-
             return View();
         }
-       
+        [HttpPost]
+        public ActionResult Index(ForgotPasswordModel forgotpasswordmodel)
+        {
+            if (ModelState.IsValid)
+            {
+                
+                if (DAL.ValidSjsuIdAndEmail(forgotpasswordmodel.SJSUId, forgotpasswordmodel.email))
+                {
+                    //FormsAuthentication.SetAuthCookie(forgotpasswordmodel.SJSUId, false);
+                    return RedirectToAction("index", "ResetPassword");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid Email Address or Sjsu Id");
+                }
 
-
+            }
+            return View();
+        }
     }
 }

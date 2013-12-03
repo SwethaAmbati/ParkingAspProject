@@ -1,17 +1,18 @@
-﻿using SJSUParking.Models;
-using SJSUParking.Models.DataAccess;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SJSUParking.Models;
+using SJSUParking.Models.DataAccess;
+
 
 namespace SJSUParking.Controllers
 {
-    public class ReserveParkingController : Controller
+    public class ResetPasswordController : Controller
     {
         //
-        // GET: /ReserveParking/
+        // GET: /ResetPassword/
 
         public ActionResult Index()
         {
@@ -19,14 +20,14 @@ namespace SJSUParking.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(ReservedParkingModel reservedParkingModel)
+        public ActionResult Index(ResetPasswordModel Password)
         {
             if (ModelState.IsValid)
             {
-
+                DAL.Reset(Password);
+                return RedirectToAction("index", "Login");
             }
             return View();
         }
-
     }
 }

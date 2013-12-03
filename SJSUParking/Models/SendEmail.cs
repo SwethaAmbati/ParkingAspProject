@@ -19,9 +19,9 @@ namespace SJSUParking.Models
 
             email.Subject = "Password Request";
             email.IsBodyHtml = true;
-            string Password = <%Password%>;
+          //  string Password = <%Password%>;
             
-            email.Body = "<p>Your Password is" + Password + "</p>"; 
+        //    email.Body = "<p>Your Password is" + Password + "</p>"; 
               
 
             SmtpClient smtpClient = new SmtpClient();

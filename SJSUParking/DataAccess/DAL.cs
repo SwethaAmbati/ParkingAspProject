@@ -33,10 +33,19 @@ namespace SJSUParking.Models.DataAccess
             conn.Close();
         }
 
-        public static bool ValidEmail(string email)
+        public static void Reset(ResetPasswordModel resetpasswordmodel)
+        {
+            string query = string.Format("UPDATE Users SET Password=" +resetpasswordmodel.Password+ "WHERE SJSUId="+resetpasswordmodel.SJSUId);
+            SqlCommand cmd = new SqlCommand(query, conn);
+            conn.Open();
+            SqlDataReader sdr = cmd.ExecuteReader();
+            conn.Close();
+        }
+
+        public static bool ValidSjsuIdAndEmail(string SjsuId, string email)
         {
             bool authenticated = false;
-            string query = string.Format("Select * FROM Users Where email = '{0}'",email);
+            string query = string.Format("Select * FROM Users Where SJSUId = '{0}' AND Email = '{1}' ", SjsuId, email);
             SqlCommand cmd = new SqlCommand(query, conn);
             conn.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
@@ -44,5 +53,6 @@ namespace SJSUParking.Models.DataAccess
             conn.Close();
             return (authenticated);
         }
+
     }
 }

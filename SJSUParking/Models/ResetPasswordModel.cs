@@ -6,18 +6,16 @@ using System.Text;
 using System.Web.Security;
 using SJSUParking.Models;
 
-
-namespace SJSUParking.Controllers
+namespace SJSUParking.Models
 {
-    public class ForgotPasswordModel
+    public class ResetPasswordModel
     {
         [Required]
-        [Display(Name = "Email Address")]
-        public string email { get; set; }
+        [Display(Name = "Password")]
+        public string Password { get; set; }
 
         [Required]
         [Display(Name = "SJSU Id")]
         public string SJSUId { get; set; }
-  
     }
 }
